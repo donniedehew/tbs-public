@@ -1,0 +1,101 @@
+/* Decorative siblings keep backdrop sampling outside the navigation's blend layer.
+   Do not mask or fade this parent: either would isolate its children's backdrop. */
+.tbs-edge-glass {
+  --tbs-glass-strength:1;
+  --tbs-glass-direction:to bottom;
+  --tbs-glass-tint:.94;
+  position:fixed;
+  z-index:999;
+  left:0;
+  right:0;
+  margin:0;
+  padding:0;
+  border:0;
+  pointer-events:none;
+}
+.tbs-edge-glass--top{top:0;height:calc(28px + clamp(28px,3.1vw,57px) + 60px)}
+/* Temporarily disabled; remove display:none to restore the lower glass. */
+.tbs-edge-glass--bottom{display:none;--tbs-glass-direction:to top;bottom:0;height:calc(112px + env(safe-area-inset-bottom,0px))}
+.tbs-edge-glass::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(var(--tbs-glass-direction),
+    rgba(242,242,242,calc(var(--tbs-glass-tint) * var(--tbs-glass-strength))) 0%,
+    rgba(242,242,242,calc(var(--tbs-glass-tint) * var(--tbs-glass-strength) * .92)) 52%,
+    rgba(242,242,242,calc(var(--tbs-glass-tint) * var(--tbs-glass-strength) * .54)) 72%,
+    rgba(242,242,242,0) 100%);
+}
+.tbs-edge-glass__layer{display:none;position:absolute;inset:0;pointer-events:none;opacity:var(--tbs-glass-strength)}
+/* Each progressively stronger filter has its own feather; the inner edge reaches zero. */
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) and ((mask-image:linear-gradient(black,transparent)) or (-webkit-mask-image:linear-gradient(black,transparent))) {
+  .tbs-edge-glass{--tbs-glass-tint:.12}
+  .tbs-edge-glass__layer {
+    display:block;
+    -webkit-backdrop-filter:blur(var(--tbs-glass-blur));
+    backdrop-filter:blur(var(--tbs-glass-blur));
+    -webkit-mask-image:linear-gradient(var(--tbs-glass-direction),#000 0%,#000 var(--tbs-glass-solid),transparent var(--tbs-glass-clear));
+    mask-image:linear-gradient(var(--tbs-glass-direction),#000 0%,#000 var(--tbs-glass-solid),transparent var(--tbs-glass-clear));
+  }
+  .tbs-edge-glass__layer:nth-child(1){--tbs-glass-blur:2px;--tbs-glass-solid:75%;--tbs-glass-clear:100%}
+  .tbs-edge-glass__layer:nth-child(2){--tbs-glass-blur:6px;--tbs-glass-solid:65%;--tbs-glass-clear:92%}
+  .tbs-edge-glass__layer:nth-child(3){--tbs-glass-blur:12px;--tbs-glass-solid:55%;--tbs-glass-clear:80%}
+}
+@media(min-width:1800px){.tbs-edge-glass--top{height:calc(48px + 57px + 60px)}}
+@media(max-width:650px){.tbs-edge-glass--top{height:113px}}
+@media(prefers-reduced-transparency:reduce){.tbs-edge-glass{--tbs-glass-tint:.98}.tbs-edge-glass__layer{display:none}}
+
+/* One fixed navigation shell for Home, Work, cases and legal templates. */
+body .tbs-site-header.work-header{position:fixed;z-index:1000;top:28px;left:3.8vw;right:3.8vw;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;width:auto;height:auto;margin:0;padding:0;border:0;background:transparent;color:#fff!important;mix-blend-mode:difference!important;pointer-events:none;font-family:"Neue Machina",Arial,sans-serif}
+body .tbs-site-header.work-header::after{content:"";position:absolute;top:calc(100% + 13px);left:0;right:0;height:1px;background:currentColor;opacity:.52;pointer-events:none;color:inherit;mix-blend-mode:normal}
+body .tbs-site-header a,body .tbs-site-header button{pointer-events:auto;text-decoration:none}
+body .tbs-site-header .brand{position:relative;display:inline-flex;align-items:flex-start;justify-content:flex-start;flex:none;white-space:nowrap;margin:0;padding:0;border:0;background:transparent;color:inherit!important;mix-blend-mode:normal!important;font-family:Bitsy,Arial,sans-serif;font-size:clamp(28px,3.1vw,57px);font-weight:400;line-height:1;letter-spacing:0;font-variation-settings:'slnt' 1000,'wdth' 365,'wght' 369;transform-origin:left top}
+body .tbs-site-header .brand-letter{display:inline-flex;justify-content:flex-start;flex:none;margin:0;letter-spacing:-.025em;font-variation-settings:'slnt' 1000,'wdth' 365,'wght' 369}
+body .tbs-site-header .brand sup{position:absolute;left:calc(100% - .20em + 1px);top:.08em;margin:0;padding:0;font-family:"Neue Machina",Arial,sans-serif!important;font-size:.40em!important;font-style:normal;font-weight:400;line-height:1;font-variation-settings:normal!important;letter-spacing:0;transform:none;vertical-align:baseline}
+body .tbs-site-header .items-menu-host{position:relative;z-index:2;display:inline-flex;align-items:center;margin-left:auto;pointer-events:auto}
+body .tbs-site-header .items-toggle.header-link{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:space-between;gap:.8em;max-width:none;width:auto;height:auto;margin:0;padding:8px 0 10px;appearance:none;border:0;border-radius:0;background:transparent;color:inherit!important;mix-blend-mode:normal!important;font-family:"Neue Machina",Arial,sans-serif;font-size:clamp(12px,1.15vw,18px);font-weight:400;line-height:1.2;letter-spacing:.12em;text-align:right;text-decoration:none;cursor:pointer;pointer-events:auto}
+body .tbs-site-header .items-toggle::after,body .tbs-site-corners .cta::after,.tbs-site-footer a.cta::after{content:"";position:absolute;bottom:2px;left:0;right:0;height:2px;background-image:radial-gradient(circle at 1px 1px,currentColor .65px,transparent .85px);background-size:5px 2px;background-repeat:repeat-x;opacity:.72;pointer-events:none;animation:tbs-navigation-dots 1.25s linear infinite}
+body .tbs-site-header .items-toggle:hover::after,body .tbs-site-header .items-toggle:focus-visible::after,body .tbs-site-header .items-menu-host.is-open .items-toggle::after,body .tbs-site-corners .cta:hover::after,body .tbs-site-corners .cta:focus-visible::after,.tbs-site-footer a.cta:hover::after,.tbs-site-footer a.cta:focus-visible::after{opacity:1;animation-duration:.65s}
+body .tbs-site-header .items-icon{position:relative;display:block;flex:0 0 19px;width:19px;height:19px;transform:rotate(0);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+body .tbs-site-header .items-icon i{position:absolute;left:50%;top:50%;display:block;width:17px;height:3px;margin:0;border:0;border-radius:0;background:currentColor;transform:translate(-50%,-50%)}
+body .tbs-site-header .items-icon i+i{transform:translate(-50%,-50%) rotate(90deg)}
+body .tbs-site-header .items-menu-host:not(.is-open) .items-icon{transform:rotate(0)}
+body .tbs-site-header .items-menu-host.is-open .items-icon{transform:rotate(45deg)}
+
+/* The panel lives outside the blend layer, so text and glass retain their colour. */
+.tbs-items-portal{position:fixed;inset:0;z-index:1001;pointer-events:none;mix-blend-mode:normal!important;font-family:"Neue Machina",Arial,sans-serif;color:#303032}
+.tbs-items-portal .items-menu{position:fixed;display:grid;width:min(286px,calc(100vw - 40px));max-height:calc(100svh - var(--tbs-menu-top,80px) - 20px);overflow-y:auto;overscroll-behavior:contain;box-sizing:border-box;margin:0;padding:7px 13px;background:rgba(255,255,255,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.76);border-radius:15px;box-shadow:0 14px 42px rgba(25,25,30,.13);color:#303032;mix-blend-mode:normal;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px) scale(.985);filter:blur(4px);transform-origin:top right;transition:opacity .28s ease,transform .38s cubic-bezier(.2,.75,.25,1),filter .34s ease,visibility .34s}
+.tbs-items-portal.is-open .items-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0) scale(1);filter:blur(0)}
+.tbs-items-portal .items-menu a{display:grid;grid-template-columns:25px minmax(0,1fr) 16px;align-items:center;gap:10px;margin:0;padding:13px 4px;border:0;border-top:1px dotted rgba(48,48,50,.25);border-radius:0;background:transparent;color:inherit;font-size:13px;font-weight:400;line-height:1.2;letter-spacing:.01em;text-decoration:none;transition:padding .2s ease,color .2s ease}
+.tbs-items-portal .items-menu a:first-child{border-top:0}
+.tbs-items-portal .items-menu a:hover,.tbs-items-portal .items-menu a:focus-visible,.tbs-items-portal .items-menu a[aria-current=page]{color:#4257f5}
+.tbs-items-portal .items-menu a:hover,.tbs-items-portal .items-menu a:focus-visible{padding-inline:8px}
+.tbs-items-portal .items-menu-number{font-size:9px;letter-spacing:.08em;opacity:.55}
+.tbs-items-portal .items-menu-title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tbs-items-portal .items-menu-arrow{justify-self:end;font-size:14px;transition:transform .2s ease}
+.tbs-items-portal .items-menu a:hover .items-menu-arrow,.tbs-items-portal .items-menu a:focus-visible .items-menu-arrow{transform:translate(2px,-2px)}
+
+body .tbs-site-corners.hero-bottom{position:fixed;z-index:1000;bottom:max(12px,env(safe-area-inset-bottom));left:3.8vw;right:3.8vw;display:flex;align-items:center;justify-content:space-between;gap:24px;width:auto;height:auto;margin:0;padding:0;border:0;background:transparent;color:#fff!important;mix-blend-mode:difference!important;pointer-events:none;font-family:"Neue Machina",Arial,sans-serif;font-size:clamp(12px,1.15vw,18px);font-weight:400;line-height:1.2;letter-spacing:.12em}
+body .tbs-site-corners .tbs-corner-link{position:relative;display:inline-flex;align-items:center;justify-content:space-between;gap:.8em;margin:0;padding:8px 0 10px;border:0;border-radius:0;background:transparent;color:inherit!important;font:inherit;line-height:1.2;letter-spacing:inherit;text-decoration:none;pointer-events:auto;isolation:isolate}
+
+/* Keep the established arrow and dotted underline on every shared footer. */
+.tbs-site-footer a.cta{position:relative;display:inline-flex;align-items:center;justify-content:space-between;gap:.8em;padding:8px 0 10px;border:0;border-radius:0;background:transparent;color:inherit;font-family:"Neue Machina",Arial,sans-serif;line-height:1.2;text-decoration:none;isolation:isolate}
+.tbs-site-corners .cta-arrow,.tbs-site-footer .cta-arrow{position:relative;display:block;flex:0 0 auto;width:1.35em;height:1em;overflow:hidden}
+.tbs-site-corners .cta-arrow svg,.tbs-site-footer .cta-arrow svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .45s cubic-bezier(.22,.7,.25,1)}
+.tbs-site-corners .cta-arrow svg path,.tbs-site-footer .cta-arrow svg path{fill:currentColor}
+.tbs-site-corners .cta-arrow svg+svg,.tbs-site-footer .cta-arrow svg+svg{transform:translate(-120%,120%)}
+.tbs-site-corners .cta:hover .cta-arrow svg:first-child,.tbs-site-corners .cta:focus-visible .cta-arrow svg:first-child,.tbs-site-footer .cta:hover .cta-arrow svg:first-child,.tbs-site-footer .cta:focus-visible .cta-arrow svg:first-child{transform:translate(120%,-120%)}
+.tbs-site-corners .cta:hover .cta-arrow svg+svg,.tbs-site-corners .cta:focus-visible .cta-arrow svg+svg,.tbs-site-footer .cta:hover .cta-arrow svg+svg,.tbs-site-footer .cta:focus-visible .cta-arrow svg+svg{transform:translate(0,0)}
+footer#footer.tbs-site-footer .footer-top nav a.cta{display:flex;justify-content:space-between;gap:.8em;border:0;border-top:1px solid #777;padding:14px 4px;font-size:clamp(13px,1.2vw,20px)}
+footer#footer.tbs-site-footer .footer-top nav a.cta::after{display:none}
+footer#footer.tbs-site-footer .contact a.cta{font-size:clamp(12px,1.05vw,16px);letter-spacing:.12em}
+footer#footer.tbs-site-footer .footer-base a.cta{font-size:11px}
+body .tbs-site-header :is(a,button):focus-visible,body .tbs-site-corners a:focus-visible,.tbs-items-portal a:focus-visible{outline:2px solid #4257f5;outline-offset:5px}
+@keyframes tbs-navigation-dots{from{background-position:0 0}to{background-position:5px 0}}
+@media(min-width:1800px){body .tbs-site-header.work-header{top:48px}}
+@media(max-width:650px){body .tbs-site-header.work-header{top:25px}body .tbs-site-header .brand{font-size:28px}body .tbs-site-header .items-toggle.header-link{font-size:12px}body .tbs-site-header .items-icon{flex-basis:18px;width:18px;height:18px}body .tbs-site-header .items-icon i{width:16px;height:2px}body .tbs-site-corners.hero-bottom{font-size:12px}.tbs-items-portal .items-menu{width:min(270px,calc(100vw - 40px));padding:6px 11px}.tbs-items-portal .items-menu a{padding:14px 4px}}
+@media(prefers-reduced-motion:reduce){body .tbs-site-header .items-toggle::after,body .tbs-site-corners .cta::after,.tbs-site-footer a.cta::after{animation:none}body .tbs-site-header .items-icon,.tbs-items-portal .items-menu,.tbs-items-portal .items-menu a,.tbs-items-portal .items-menu-arrow,.tbs-site-corners .cta-arrow svg,.tbs-site-footer .cta-arrow svg{transition:none}}
+
+/* Shared footer spacing: home, Work, legal and cookies. */
+html body footer#footer.tbs-site-footer .wordmark{margin-bottom:12px!important}
+html body footer#footer.tbs-site-footer .footer-base{padding-top:10px!important;padding-bottom:10px!important}

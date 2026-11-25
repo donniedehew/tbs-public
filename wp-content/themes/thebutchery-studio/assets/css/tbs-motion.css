@@ -1,0 +1,122 @@
+/* ==========================================================
+   TBS — Motion system
+   ========================================================== */
+
+/* Lenis */
+
+html.lenis,
+html.lenis body {
+	height: auto;
+}
+
+.lenis.lenis-smooth {
+	scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+	overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+	pointer-events: none;
+}
+
+/* Estado del sistema */
+
+html.tbs-motion-ready {
+	scroll-behavior: auto;
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+	html,
+	html.lenis,
+	html.lenis body {
+		scroll-behavior: auto !important;
+	}
+
+	.js-reveal-lines,
+	.js-reveal-words,
+	.js-tbs-hero-logo {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+}
+
+/* ==========================================================
+   TBS — Cabecera y vuelo del logotipo
+   ========================================================== */
+
+.tbs-site-header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+}
+
+body.admin-bar .tbs-site-header {
+	top: 32px;
+}
+
+.tbs-hero {
+	position: relative;
+	min-height: 100svh;
+	overflow: clip;
+}
+
+.js-tbs-hero-logo {
+	position: relative;
+	z-index: 1001;
+	margin: 0;
+	transform-origin: top left;
+	will-change: transform;
+}
+
+.js-tbs-header-target {
+	transform-origin: top left;
+}
+
+/*
+ * El destino solo se oculta cuando JavaScript confirma
+ * que el sistema de vuelo está preparado.
+ */
+html.tbs-logo-flight-ready .js-tbs-header-target {
+	opacity: 0;
+	visibility: hidden;
+}
+
+html.tbs-logo-flight-ready.tbs-logo-landed .js-tbs-header-target {
+	opacity: 1;
+	visibility: visible;
+}
+
+html.tbs-logo-flight-ready.tbs-logo-landed .js-tbs-hero-logo {
+	visibility: hidden;
+}
+
+@media screen and (max-width: 782px) {
+	body.admin-bar .tbs-site-header {
+		top: 46px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tbs-site-header {
+		position: relative;
+		top: auto !important;
+	}
+
+	.js-tbs-header-target,
+	.js-tbs-hero-logo {
+		opacity: 1 !important;
+		visibility: visible !important;
+		transform: none !important;
+	}
+}

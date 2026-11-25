@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "guardian",
+    "title": "Guardian / Inprotech",
+    "category": "Industrial cybersecurity · SaaS · Product Design",
+    "summary": "Diseño del primer producto de Inprotech: una plataforma de monitorización y ciberseguridad para entornos industriales OT.",
+    "image": "guardian.jpg",
+    "alt": "Guardian, plataforma industrial de Inprotech en un portátil"
+  },
+  {
+    "slug": "lidar",
+    "title": "CiTIUS / LiDAR",
+    "category": "Geospatial · 2D/3D · Product Design",
+    "summary": "Aplicación para explorar terrenos escaneados mediante LiDAR, crear y editar rutas y analizar la información desde visualizaciones 3D, mapas 2D, perfiles y mediciones.",
+    "image": "lidar.jpg",
+    "alt": "CiTIUS, visualización de terreno LiDAR sobre una tablet"
+  },
+  {
+    "slug": "meandme",
+    "title": "Meandme / eCommerce Editorial",
+    "category": "UX/UI / Art Direction / Development",
+    "summary": "Rediseño de un e-commerce dermocosmético para convertir una tienda convencional en una experiencia de marca más editorial, estructurada alrededor de las distintas etapas hormonales.",
+    "image": "meandme.png",
+    "alt": "Meandme, tienda dermocosmética editorial en un portátil"
+  }
+]
