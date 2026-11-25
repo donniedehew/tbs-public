@@ -1,6 +1,6 @@
 # Guía para agentes
 
-Estas instrucciones se aplican a esta selección pública del código de The Butchery Studio. Las peticiones y autorizaciones de la conversación determinan el alcance de cada tarea.
+Estas instrucciones se aplican a esta selección pública del código de The Butchery Studio. Cada tarea debe ajustarse al alcance autorizado por quien mantiene el proyecto.
 
 ## Antes de cambiar código
 
@@ -18,6 +18,13 @@ Estas instrucciones se aplican a esta selección pública del código de The But
 - Revisar las fuentes y el proceso real antes de regenerar archivos compilados. No inventar un comando de build.
 - Mantener las exclusiones de esta copia pública. No incorporar contenido privado, mecanismos de acceso de producción, secretos, datos de alojamiento ni recursos sin permiso de redistribución.
 - Conservar avisos y licencias aplicables. No deducir una licencia general del nombre del repositorio o de la licencia de un componente.
+
+## Criterio editorial público
+
+- Publicar documentación técnica y profesional: arquitectura, funcionamiento, decisiones de diseño justificadas por el producto, implementación, validación y licencias.
+- No publicar transcripciones ni resúmenes de conversaciones, prompts, notas personales, motivaciones o decisiones personales, valoraciones sobre personas ni datos de contacto privados. Describir el resultado técnico sin relatar intercambios privados.
+- Aplicar este criterio a archivos, comentarios de código, capturas, mensajes de commit, pull requests e incidencias. Revisar el contenido completo antes de subirlo; eliminarlo en un commit posterior no lo retira del historial.
+- Mantener únicamente la identidad profesional y las referencias del portfolio ya destinadas a publicación. No trasladar documentación operativa privada a esta copia.
 
 ## Método
 
