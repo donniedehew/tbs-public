@@ -1,0 +1,43 @@
+/* Reading layout retained from the existing legal template parts. */
+body.page-template-legal-cpt-shell,body.page-template-legal-cabecera-y-pie{background:#f2f2f2;color:#303032;font-family:"TBS Neue","AR One Sans",Arial,sans-serif}
+.tbs-legal-main{box-sizing:border-box;width:min(100% - 3.5rem,58rem)!important;max-width:none!important;margin:0 auto!important;padding:clamp(9rem,14vw,12rem) 0 clamp(5rem,9vw,8rem)!important}
+.tbs-legal-main>.wp-block-post-content{width:100%;max-width:100%;margin:0!important}
+.tbs-legal-main .wp-block-post-content>h2:first-child{margin:0 0 clamp(2.5rem,6vw,5rem);font-family:"TBS Neue","AR One Sans",Arial,sans-serif;font-size:clamp(2.75rem,5vw,4.5rem);font-weight:400;letter-spacing:-.045em;line-height:.98}
+.tbs-legal-main .wp-block-post-content h2:not(:first-child){margin:clamp(3rem,6vw,5rem) 0 1.25rem;padding-top:1.25rem;border-top:1px solid rgba(25,25,25,.22);font-size:clamp(1.45rem,2.5vw,2rem);font-weight:400;line-height:1.15}
+.tbs-legal-main .wp-block-post-content h3{margin:2.25rem 0 .75rem;font-size:1.15rem;font-weight:500;line-height:1.25}
+.tbs-legal-main .wp-block-post-content p{max-width:70ch;margin:0 0 1.35rem;font-size:clamp(1rem,1.15vw,1.125rem);line-height:1.65}
+.tbs-legal-main .wp-block-post-content a{color:#4e62d8;text-decoration-thickness:.07em;text-underline-offset:.18em}
+.tbs-legal-main .wp-block-post-content table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;line-height:1.5}
+.tbs-legal-main .wp-block-post-content th,.tbs-legal-main .wp-block-post-content td{padding:.85rem .75rem;border-bottom:1px solid rgba(25,25,25,.18);text-align:left;vertical-align:top}
+@media(max-width:650px){.tbs-legal-main{width:calc(100% - 2.5rem)!important;padding-top:8rem!important;padding-bottom:5rem!important}.tbs-legal-main .wp-block-post-content>h2:first-child{font-size:clamp(2.6rem,13vw,4rem)}.tbs-legal-main .wp-block-post-content h2:not(:first-child){margin-top:3rem}}
+
+footer#footer{font-family:"Neue Machina",Arial,sans-serif!important}
+footer#footer .footer-top nav a,
+footer#footer .contact .wp-block-button__link,
+footer#footer .footer-base a{font-family:"Neue Machina",Arial,sans-serif!important}
+footer#footer .footer-base p{font-family:"Neue Machina",Arial,sans-serif!important;font-size:11px!important;line-height:normal!important}
+@media(max-width:650px){
+  body.tbs-work-page footer#footer .wordmark,
+  body.page-template-legal-cpt-shell footer#footer .wordmark{margin:72px 0 18px!important;line-height:.95!important}
+}
+
+
+body.page-template-legal-cpt-shell footer.wp-block-template-part{box-sizing:border-box;min-height:0!important;padding:0!important;margin:0!important}
+body.page-template-legal-cpt-shell footer#footer{min-height:0!important;padding-top:clamp(56px,8vh,96px)!important;font-size:16px!important;line-height:normal!important}
+body.page-template-legal-cpt-shell footer#footer .footer-top nav h2{line-height:normal!important}
+body.page-template-legal-cpt-shell footer#footer .footer-top nav a{line-height:1.2!important}
+body.page-template-legal-cpt-shell footer#footer .contact>p{text-align:right!important;line-height:normal!important}
+body.page-template-legal-cpt-shell footer#footer .contact .tbs-contact-link{line-height:normal!important}
+body.page-template-legal-cpt-shell footer#footer .contact .wp-block-button__link{line-height:1.2!important;padding-bottom:10px!important}
+body.page-template-legal-cpt-shell footer#footer .wordmark{margin:calc(clamp(18px,1.8vw,28px) - 50px) 0 clamp(18px,2vw,28px)!important}
+body.page-template-legal-cpt-shell footer#footer .tbs-footer-arrow{display:inline-flex;align-items:center;overflow:hidden;vertical-align:middle}
+body.page-template-legal-cpt-shell footer#footer .tbs-footer-arrow svg+svg{display:none}
+body.page-template-legal-cpt-shell footer#footer .contact .tbs-footer-cta,
+body.page-template-legal-cpt-shell footer#footer .footer-base .tbs-footer-cta{display:inline-flex;align-items:center;gap:.4em}
+body.page-template-legal-cpt-shell footer#footer .footer-base .tbs-footer-arrow svg{width:14px;height:10px}
+@media(max-width:650px){
+ body.page-template-legal-cpt-shell footer#footer{padding-top:clamp(56px,8vh,96px)!important}
+ body.page-template-legal-cpt-shell footer#footer .wordmark{margin:72px 0 18px!important}
+ body.page-template-legal-cpt-shell footer#footer .footer-base{align-items:center;gap:20px}
+}
+

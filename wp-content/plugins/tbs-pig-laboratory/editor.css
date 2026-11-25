@@ -1,0 +1,19 @@
+.editor-styles-wrapper{font-family:"TBS Neue Machina",Arial,sans-serif;color:#303032;background:#f2f2f2}
+.editor-styles-wrapper [id^="tbs-"]{border:1px solid #d3d3d5;border-radius:4px;padding:24px;margin:14px 0;background:#f2f2f2}
+.editor-styles-wrapper [id^="tbs-"]:before{content:attr(id);display:block;text-transform:uppercase;font:11px/1.4 Arial,sans-serif;letter-spacing:.14em;color:#4257f5;margin-bottom:18px}
+.editor-styles-wrapper #tbs-hero h1{font-size:clamp(32px,4.25vw,82px);font-weight:400;line-height:1.12;letter-spacing:-.035em}
+.editor-styles-wrapper #tbs-hero h1 span{color:#4257f5}
+.editor-styles-wrapper #tbs-hero .discipline{text-align:right;color:#4257f5}
+.editor-styles-wrapper #tbs-intro{text-align:center}
+.editor-styles-wrapper #tbs-intro h2{font-size:clamp(29px,3.6vw,68px);font-weight:400}
+.editor-styles-wrapper #tbs-intro p{font-size:clamp(16px,1.65vw,30px);line-height:1.38}
+.editor-styles-wrapper #tbs-marquee h2{font-size:clamp(50px,8vw,150px);font-weight:400;white-space:nowrap;overflow:hidden}
+.editor-styles-wrapper #tbs-services h2{font-size:clamp(30px,3.7vw,70px);font-weight:400}
+.editor-styles-wrapper #tbs-service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.editor-styles-wrapper #tbs-service-grid>.tbs-service{margin:0;min-width:0;border-top:1px solid #777}
+.editor-styles-wrapper #tbs-service-grid>.tbs-service h3{font-size:clamp(23px,2.5vw,46px);font-weight:400}
+.editor-styles-wrapper #tbs-service-grid>.tbs-service p{font-size:clamp(15px,1.65vw,30px);line-height:1.25}
+.editor-styles-wrapper #tbs-nav{display:flex;justify-content:space-between}
+.editor-styles-wrapper #tbs-legal{display:flex;gap:25px}
+.editor-styles-wrapper .wp-block-button__link{border-radius:0;background:transparent;color:#303032;border-bottom:1px dotted #303032;padding:6px 0}
+@media(max-width:650px){.editor-styles-wrapper #tbs-service-grid{grid-template-columns:1fr}}

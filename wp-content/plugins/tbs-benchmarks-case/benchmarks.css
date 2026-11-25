@@ -1,0 +1,26 @@
+body.tbs-benchmarks-case-page .tbs-case-feature{display:flex;flex-direction:column;align-items:stretch}
+body.tbs-benchmarks-case-page .tbs-case-feature-copy{max-width:760px}
+body.tbs-benchmarks-case-page .tbs-case-feature .tbs-case-media{width:100%;margin-top:2.5rem!important}
+body.tbs-benchmarks-case-page .benchmarks-media-pending{min-height:180px;background:#e9edf3;color:#52606f}
+body.tbs-benchmarks-case-page .benchmarks-case-image{display:block;border:0;background:transparent}
+body.tbs-benchmarks-case-page .benchmarks-case-image::before{display:none}
+body.tbs-benchmarks-case-page .benchmarks-case-image img{display:block;width:100%;height:auto;object-fit:contain}
+body.tbs-benchmarks-case-page .benchmarks-case-caption{max-width:760px;font-size:.8rem;line-height:1.45;color:#526366}
+body.tbs-benchmarks-case-page #benchmarks-hero{order:5;width:100%;aspect-ratio:16/9;margin-top:clamp(2rem,4vw,4rem)!important;margin-bottom:clamp(1.5rem,2.5vw,2.5rem)!important}
+body.tbs-benchmarks-case-page #case-main .tbs-case-hero>.tbs-case-scroll-arrow{position:static;order:0;align-self:flex-start;display:grid;place-items:center;width:25px;height:1em;margin:0 0 .625rem;font-family:Bitsy,Arial,sans-serif;font-size:25px;font-weight:400;line-height:1;color:var(--blue,#304cff);text-decoration:none;transition:transform .35s cubic-bezier(.2,.75,.25,1)}
+body.tbs-benchmarks-case-page .tbs-case-scroll-arrow:hover{transform:translateX(3px)}
+body.tbs-benchmarks-case-page .tbs-case-scroll-arrow:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@media(max-width:600px){body.tbs-benchmarks-case-page #case-main .tbs-case-hero>.tbs-case-scroll-arrow{width:21px;font-size:21px}}
+@media(prefers-reduced-motion:reduce){body.tbs-benchmarks-case-page .tbs-case-scroll-arrow{transition:none}}
+
+
+body.tbs-benchmarks-case-page .tbs-case-feature{gap:0}
+body.tbs-benchmarks-case-page .benchmarks-native-capture{aspect-ratio:auto!important;min-height:0!important}
+body.tbs-benchmarks-case-page #case-main .benchmarks-case-caption{font-size:.8rem;line-height:1.45;margin:.85rem 0 0!important}
+
+body.tbs-benchmarks-case-page #case-main .tbs-case-hero>.tbs-case-facts{order:6}
+
+body.tbs-benchmarks-case-page .benchmarks-case-video{display:block;aspect-ratio:16/9;min-height:0;border:0;background:transparent;overflow:hidden}
+body.tbs-benchmarks-case-page .benchmarks-case-video::before{display:none!important}
+body.tbs-benchmarks-case-page .benchmarks-case-video video{display:block;width:100%;height:100%;aspect-ratio:16/9;object-fit:contain!important}
+body.tbs-benchmarks-case-page .benchmarks-case-video>.tbs-case-media-open{top:12px;bottom:auto}
